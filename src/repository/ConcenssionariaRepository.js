@@ -1,5 +1,5 @@
 import prisma from "@/src/lib/prisma";
-import { Concessionaria } from "@/src/models/Concessionaria";
+import { Concessionaria } from "@/src/model/Concessionaria";
 
 export class ConcessionariaRepository{
     async salvar(obj) {

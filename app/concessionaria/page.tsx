@@ -55,7 +55,7 @@ export default function Concenssionaria() {
                                     <td className="px-6 py-4 text-sm flex justify-end gap-4 items-center">
 
                                         <Link
-                                            href={`/consessionaria/form?id=${concessionaria.id}`}
+                                            href={`/concessionaria/form?id=${concessionaria.id}`}
                                             className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
                                         >
                                             Editar

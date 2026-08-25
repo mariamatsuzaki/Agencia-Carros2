@@ -1,6 +1,6 @@
 'use client';
 
-import { useConcenssionariaForm } from '@/app/hooks/useConcessionariaForm';
+import { useConcessionariaForm } from '@/app/hooks/useConcessionariaForm';
 
 export default function ConcessionariaForm() {
     const {
@@ -12,7 +12,7 @@ export default function ConcessionariaForm() {
         salvando,
         salvar,
         cancelar
-    } = useConcenssionariaForm();
+    } = useConcessionariaForm();
 
     if (carregando) {
         return (

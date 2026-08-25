@@ -1,0 +1,23 @@
+import { NextResponse } from 'next/server';
+import { ConcessionariaRepository } from '@/src/repository/ConcenssionariaRepository';
+import { ConcessionariaService } from '@/src/service/ConcenssionariaService';
+
+const service = new ConcessionariaService(new ConcessionariaRepository());
+
+export async function GET(){
+    try{
+        const todasConcessionarias = await service.listar();
+        return NextResponse.json(todasConcessionarias, { status: 200});
+    }catch(e){
+        return NextResponse.json({erro: e.message}, {status: 500});
+    }
+} 
+export async function POST(req){
+    try{
+        const body = await req.json();
+        const res = await service.cadastrar(body.nome, body.cnpj, body.cidade);
+        return NextResponse.json(res, {status: 201});
+    }catch(e){
+        return NextResponse.json({ erro: e.message}, {status: 400});
+    }
+}

@@ -6,7 +6,7 @@ import api from '../lib/api';
 import { Concessionaria } from '@/app/types/concessionaria';
 import Swal from 'sweetalert2';
 
-export function useConcenssionariaForm(){
+export function useConcessionariaForm(){
     const router = useRouter();
     const searchParams = useSearchParams();
     const idParam = searchParams.get('id');
@@ -42,8 +42,8 @@ export function useConcenssionariaForm(){
 
             setEditandoId(concessionaria.id!);
             setNome(String(concessionaria.nome));
-            setCnpj(String(concessionaria.cnpj));
-            setCidade(String(concessionaria.cidade));
+            setCnpj(concessionaria.cnpj ? String(concessionaria.cnpj) : "");
+            setCidade(concessionaria.cidade ? String(concessionaria.cidade): "");
         } catch (error: any) {
             Swal.fire({
                 title: 'Erro!',
