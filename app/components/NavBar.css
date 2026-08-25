@@ -1,0 +1,12 @@
+nav, ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(226, 192, 249);
+    color: #650000;
+    padding-inline: 30px;
+    padding-block: 10px;
+}
+ul{
+    gap:30px;
+}
