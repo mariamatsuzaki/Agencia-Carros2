@@ -37,7 +37,7 @@ export function useConcessionariaForm(){
     const buscarConcessionariaPorId = async (id: number) => {
         setCarregando(true);
         try {
-            const resposta = await api.get(`/carro/${id}`);
+            const resposta = await api.get(`/concessionaria/${id}`);
             const concessionaria = resposta.data;
 
             setEditandoId(concessionaria.id!);
