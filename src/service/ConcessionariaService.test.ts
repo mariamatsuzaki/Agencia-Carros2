@@ -1,8 +1,8 @@
-import { CarroService } from './CarroService';
+import { ConcessionariaService } from './ConcenssionariaService';
 
 describe('Servico CarroService', () => {
     let mockRepository: any;
-    let carroService: CarroService;
+    let concessionariaService: ConcessionariaService;
 
     beforeEach(() => {
         mockRepository = {
@@ -12,18 +12,18 @@ describe('Servico CarroService', () => {
             atualizar: jest.fn(),
             excluir: jest.fn(),
         };
-        carroService = new CarroService(mockRepository);
+        concessionariaService = new ConcessionariaService(mockRepository);
     });
 
     describe('Testando validações do metodo cadastrar', () => {
         it('deve lançar erro se o nome tiver menos de 2 caracteres', async () => {
-            await expect(carroService.cadastrar('A', 'SUV'))
+            await expect(concessionariaService.cadastrar('A', 'SUV'))
                 .rejects.toThrow("O nome deve ter no mínimo 2 caracteres")
         });
 
         it('deve lançar erro se o tipo não for informado', async () => {
-            await expect(carroService.cadastrar('Honda civic'))
-                .rejects.toThrow("O tipo do veículo é obrigatório")
+            await expect(concessionariaService.cadastrar('Honda civic'))
+                .rejects.toThrow("O tipo da concessionaria é obrigatório")
         });
 
     });
@@ -33,8 +33,8 @@ describe('Servico CarroService', () => {
 
             mockRepository.buscarPorId.mockResolvedValue(null);
 
-            await expect(carroService.buscarPorId('Honda civic'))
-                .rejects.toThrow("Veículo não encontrado");
+            await expect(concessionariaService.buscarPorId('Honda civic'))
+                .rejects.toThrow("Concessionaria não encontrada");
         });
     });
 });
